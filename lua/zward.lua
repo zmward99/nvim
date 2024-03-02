@@ -42,7 +42,7 @@ opt.backup = false
 opt.ignorecase = true
 opt.smartcase = true
 
-vim.api.nvim_set_option("clipboard", "unnamedplus")
+vim.opt.clipboard = "unnamedplus"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
