@@ -25,6 +25,7 @@ return {
 				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
 				["<leader>o"] = { name = "[O]pen", _ = "which_key_ignore" },
 				["<leader>h"] = { name = "[H]elp", _ = "which_key_ignore" },
+				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
 			})
 		end,
 	},
@@ -34,5 +35,41 @@ return {
 		config = true,
 		-- use opts = {} for passing setup options
 		-- this is equalent to setup({}) function
+	},
+	{
+		"numToStr/Comment.nvim",
+
+		opts = {
+
+			-- add any options here
+		},
+		lazy = false,
+	},
+	{
+		"folke/noice.nvim",
+
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+
+			"rcarriga/nvim-notify",
+		},
+	},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			vim.keymap.set("n", "<leader>cd", function()
+				require("trouble").toggle()
+			end),
+		},
 	},
 }
